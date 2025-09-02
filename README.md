@@ -4,13 +4,28 @@ This is a full-stack web application that provides a modern, dark-themed interfa
 
 The application is built with a decoupled architecture, featuring a pure HTML, CSS, and JavaScript frontend and a powerful Python/Django backend that handles all heavy processing.
 
+
 ## Features
 
--   **Dual-Mode Operation**: Supports both "Normal Mode" for hiding text and "Integrity Mode" for verifying file integrity.
--   **Modern UI**: A clean, dark-themed, and responsive user interface for a smooth user experience.
--   **Client-Server Architecture**: A lightweight frontend communicates with a robust Django backend via a RESTful API, ensuring high performance.
--   **Secure Hashing**: Uses the industry-standard SHA-256 algorithm for generating file checksums.
--   **LSB Steganography**: Implements the Least Significant Bit (LSB) substitution technique to invisibly embed data within image files.
+🔹 **Dual Steganography Modes:**
+  - **Normal Mode:** Hide secret text messages inside images.
+  - **Integrity Mode:** Embed a file's **SHA-256 checksum** into an image to create a portable, tamper-proof verification key.
+
+🔹 **Full-Stack Decoupled Architecture:**
+A lightweight frontend (Client) communicates with a powerful **Python backend** (Server) via a RESTful API, ensuring a responsive UI and robust processing.
+
+🔹 **LSB Steganography Engine:**
+Utilizes the **Least Significant Bit (LSB)** substitution method to invisibly embed data. Features a robust **32-bit header** to store the message length, allowing for accurate decoding of variable-length data.
+
+🔹 **Modern, Framework-Free Frontend:**
+Crafted with pure **HTML, CSS, and modern JavaScript (ES6+)** to demonstrate core web development principles and ensure fast performance.
+
+🔹 **High-Performance Django Backend:**
+Built with **Python** and the **Django REST Framework** to handle heavy image processing and API requests efficiently using the **Pillow (PIL)** library.
+
+🔹 **Sleek, Responsive Dark Theme:**
+A clean, modern interface designed to be intuitive and visually appealing on both desktop and mobile devices.
+
 
 ---
 
@@ -46,48 +61,18 @@ Integrity Mode uses a cryptographic hash function (SHA-256) to create a unique, 
 
 This tool provides a novel way to store and verify this checksum. Instead of saving the hash in a separate text file (which can also be lost or altered), **Integrity Mode hides the file's hash inside an image.**
 
-The workflow is as follows:
-1.  **Encode**:
-    -   You select a target file you want to protect (e.g., `important_document.pdf`).
-    -   The tool calculates its SHA-256 hash.
-    -   You provide a cover image. The tool embeds the hash into this image, creating a "stego" image. This image now acts as a tamper-proof "key" for your document.
+##### How it Works: A Better Way to Verify Files
 
-2.  **Verify**:
-    -   Months later, you want to verify `important_document.pdf`.
-    -   You upload the stego image. The tool extracts the original, trusted hash.
-    -   You upload the `important_document.pdf` file you want to check. The tool calculates its *current* hash.
-    -   It then compares the two hashes:
-        -   ✅ **Match**: A "SAFE" message is displayed. You have mathematical proof that the file is untouched and authentic.
-        -   ❌ **Mismatch**: A "TAMPERED" message is displayed. The file has been altered or corrupted.
+🔹 **The Old Way:** Normally, to check a file’s integrity, you generate a hash (a digital fingerprint) and save it in a separate text file. The problem is, that text file can be easily deleted, modified, or misplaced, making the hash unreliable.
+
+🔹 **The Steganographic Solution:** Integrity Mode solves this. It takes the file's hash and invisibly hides it inside the pixels of an image. The image looks completely normal to the human eye but secretly acts as a secure container for the checksum.
+
+🔹 **The Verification Process:** Later, when you want to check the original file, the tool extracts the trusted hash from within the image. It then calculates the *current* hash of the file and compares the two.
+  - If they match ✅, the file is authentic and has not been tampered with.
+  - If they don't match ❌, the file has been corrupted or modified.
 
 ---
 
-## Technical Details & Architecture
-
-This project is built as a **decoupled client-server application**.
-
-### Frontend
-
--   **Stack**: Pure HTML5, CSS3, and modern JavaScript (ES6+).
--   **No Frameworks**: Intentionally built without frameworks like React or Vue to demonstrate core web development principles.
--   **Responsibilities**:
-    -   Renders the user interface.
-    -   Manages user interactions and file uploads.
-    -   Communicates with the backend via `fetch` API calls.
-    -   Performs the final hash comparison for the integrity check using the browser's **Web Crypto API**.
-
-### Backend
-
--   **Stack**: Python with the **Django** framework.
--   **API**: A RESTful API built using **Django REST Framework** to handle `POST` requests for encoding and decoding.
--   **Image Processing**: Uses the **Pillow** (PIL) library for all pixel-level manipulation.
--   **Steganography Logic**:
-    -   Implements the **LSB (Least Significant Bit)** substitution technique.
-    -   A **32-bit header** is embedded at the start of the data stream, which stores the length of the secret message. This allows the decoder to know exactly how many bits to read, making the system robust.
-    -   The logic iterates through pixels (top-to-bottom, left-to-right) and modifies the LSB of the R, G, and B color channels. The Alpha channel is ignored.
--   **Cross-Origin Communication**: Uses `django-cors-headers` to securely allow the frontend (running on a different port) to access the backend API.
-
----
 
 ## How to Set Up and Run the Project
 
