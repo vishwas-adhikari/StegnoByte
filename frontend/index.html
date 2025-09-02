@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steganography Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="main-title">Steganography Tool</h1>
+            <p class="subtitle">Hide and extract secret data in images</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Steganography Encoder Section -->
+            <section class="encoder-section">
+                <h2 class="section-title">Steganography Encoder</h2>
+                
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="normal">Normal Mode</button>
+                    <button class="mode-btn" data-mode="integrity">Integrity Mode</button>
+                </div>
+
+                <!-- Normal Mode -->
+                <div class="mode-content" id="normal-mode">
+                    <div class="upload-area" id="cover-upload-normal">
+                        <div class="upload-content">
+                            <div class="upload-icon">📁</div>
+                            <p>Drop cover image here or click to browse</p>
+                            <span class="upload-hint">Supports PNG, JPG, JPEG</span>
+                        </div>
+                        <input type="file" id="cover-file-normal" accept="image/*" hidden>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="message-input">Message to Hide</label>
+                        <textarea id="message-input" placeholder="Enter your secret message here..."></textarea>
+                    </div>
+
+                    <button class="encode-btn" id="encode-normal-btn" disabled>
+                        <span class="btn-text">Encode Message</span>
+                        <div class="btn-loading" hidden>
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Integrity Mode -->
+                <div class="mode-content hidden" id="integrity-mode">
+                    <div class="upload-area" id="target-upload">
+                        <div class="upload-content">
+                            <div class="upload-icon">📄</div>
+                            <p>Drop target file here or click to browse</p>
+                            <span class="upload-hint">Any file type supported</span>
+                        </div>
+                        <input type="file" id="target-file" hidden>
+                    </div>
+
+                    <div class="hash-display" id="hash-display" hidden>
+                        <label>File Hash (SHA-256)</label>
+                        <div class="hash-value" id="hash-value"></div>
+                    </div>
+
+                    <div class="upload-area" id="cover-upload-integrity">
+                        <div class="upload-content">
+                            <div class="upload-icon">🖼️</div>
+                            <p>Drop cover image here or click to browse</p>
+                            <span class="upload-hint">Supports PNG, JPG, JPEG</span>
+                        </div>
+                        <input type="file" id="cover-file-integrity" accept="image/*" hidden>
+                    </div>
+
+                    <button class="encode-btn" id="encode-integrity-btn" disabled>
+                        <span class="btn-text">Encode Hash</span>
+                        <div class="btn-loading" hidden>
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Steganography Decoder Section -->
+            <section class="decoder-section">
+                <h2 class="section-title">Steganography Decoder</h2>
+                
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="decode-normal">Normal Mode</button>
+                    <button class="mode-btn" data-mode="decode-integrity">Integrity Mode</button>
+                </div>
+
+                <!-- Normal Decode Mode -->
+                <div class="mode-content" id="decode-normal-mode">
+                    <div class="upload-area" id="decode-upload-normal">
+                        <div class="upload-content">
+                            <div class="upload-icon">🔍</div>
+                            <p>Drop stego image here or click to browse</p>
+                            <span class="upload-hint">Supports PNG, JPG, JPEG</span>
+                        </div>
+                        <input type="file" id="decode-file-normal" accept="image/*" hidden>
+                    </div>
+
+                    <button class="decode-btn" id="decode-normal-btn" disabled>
+                        <span class="btn-text">Decode Content</span>
+                        <div class="btn-loading" hidden>
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+
+                    <div class="result-area" id="decode-normal-result" hidden>
+                        <label>Extracted Content</label>
+                        <div class="result-content" id="normal-result-content"></div>
+                    </div>
+                </div>
+
+                <!-- Integrity Decode Mode -->
+                <div class="mode-content hidden" id="decode-integrity-mode">
+                    <div class="upload-area" id="decode-upload-integrity">
+                        <div class="upload-content">
+                            <div class="upload-icon">🔐</div>
+                            <p>Drop stego image here or click to browse</p>
+                            <span class="upload-hint">Image containing hidden hash</span>
+                        </div>
+                        <input type="file" id="decode-file-integrity" accept="image/*" hidden>
+                    </div>
+
+                    <div class="hash-display" id="extracted-hash-display" hidden>
+                        <label>Extracted Hash (SHA-256)</label>
+                        <div class="hash-value" id="extracted-hash-value"></div>
+                    </div>
+
+                    <div class="upload-area" id="verify-upload">
+                        <div class="upload-content">
+                            <div class="upload-icon">📄</div>
+                            <p>Drop target file to verify or click to browse</p>
+                            <span class="upload-hint">File to check integrity</span>
+                        </div>
+                        <input type="file" id="verify-file" hidden>
+                    </div>
+
+                    <button class="decode-btn" id="decode-integrity-btn" disabled>
+                        <span class="btn-text">Extract Hash</span>
+                        <div class="btn-loading" hidden>
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+
+                    <div class="verification-area" id="verification-result" hidden>
+                        <div class="verification-content" id="verification-content"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="steganography.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
