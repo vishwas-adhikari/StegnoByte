@@ -5,8 +5,8 @@ This is a full-stack web application that provides a modern, dark-themed interfa
 The application is built with a decoupled architecture, featuring a pure HTML, CSS, and JavaScript frontend and a powerful Python/Django backend that handles all heavy processing.
 
 <p align="center">
-  <img src="screenshots/steg1.png" alt="Encoder" width="500"/>
-  <img src="screenshots/steg3.png" alt="Decoder" width="500"/>
+  <img src="screenshots/steg1.png" alt="Encoder" width="400"/>
+  <img src="screenshots/steg3.png" alt="Decoder" width="400"/>
 </p>
 
 
@@ -80,9 +80,7 @@ This tool provides a novel way to store and verify this checksum. Instead of sav
   - If they match ✅, the file is authentic and has not been tampered with.
   - If they don't match ❌, the file has been corrupted or modified.
   - ![Normal Mode Example](screenshots/steg2.png)
-  - <p align="center">
-  <img src="screenshots/steg7.png" alt="Normal Mode Example" width="600"/>
-</p>
+  - <img src="screenshots/steg7.png" alt="Another Example" width="400">
 
 
 ---
