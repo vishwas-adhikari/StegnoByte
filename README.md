@@ -38,6 +38,8 @@ This is classic steganography. It allows you to hide a secret text message withi
 -   **How it works**: You provide an image and a message. The tool encodes the text into the image's pixel data, producing a new "stego" image that looks identical to the original.
 -   **Use case**: Sending secret messages, watermarking images, or simply for educational purposes.
 
+-   ![Normal Mode Example](screenshots/steg2.png)
+
 ### 2. Integrity Mode
 
 This is the advanced feature of the tool, designed to solve a critical problem in data management: **how do you prove a file has not been changed over time?**
