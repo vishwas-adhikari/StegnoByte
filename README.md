@@ -81,7 +81,7 @@ This tool provides a novel way to store and verify this checksum. Instead of sav
   - If they don't match ❌, the file has been corrupted or modified.
   - ![Normal Mode Example](screenshots/steg2.png)
   - <p align="center">
-  <img src="screenshots/steg7.png" alt="Encoder" width="400"/>
+  <img src="screenshots/steg7.png" alt="Encoder" width="600"/>
 </p>
 
 
