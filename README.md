@@ -79,7 +79,7 @@ This tool provides a novel way to store and verify this checksum. Instead of sav
 🔹 **The Verification Process:** Later, when you want to check the original file, the tool extracts the trusted hash from within the image. It then calculates the *current* hash of the file and compares the two.
   - If they match ✅, the file is authentic and has not been tampered with.
   - If they don't match ❌, the file has been corrupted or modified.
-  - ![Normal Mode Example](screenshots/steg2.png)
+  - ![Normal Mode Example](screenshots/steg4.png)
  <p align="center">
   <img src="screenshots/steg5.png" alt="Encoder" width="400"/>
   <img src="screenshots/steg6.png" alt="Decoder" width="400"/>
