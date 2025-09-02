@@ -38,7 +38,10 @@ This is classic steganography. It allows you to hide a secret text message withi
 -   **How it works**: You provide an image and a message. The tool encodes the text into the image's pixel data, producing a new "stego" image that looks identical to the original.
 -   **Use case**: Sending secret messages, watermarking images, or simply for educational purposes.
 
--   ![Normal Mode Example](screenshots/steg2.png)
+-   <p align="center">
+  <img src="screenshots/steg2.png" alt="Normal Mode Example" width="600"/>
+</p>
+
 
 ### 2. Integrity Mode
 
