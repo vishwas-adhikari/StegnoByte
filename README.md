@@ -1,4 +1,4 @@
-# StegByte - Steganography and Checksum 
+# StegByte - Steganography and Checksum Verification 
 
 This is a full-stack web application that provides a modern, dark-themed interface for steganographic encoding and decoding. Beyond hiding simple text messages in images, this tool includes a powerful **Integrity Mode** to verify if a file has been tamed with or corrupted over time.
 
@@ -82,8 +82,4 @@ This tool provides a novel way to store and verify this checksum. Instead of sav
 -   Node.js and npm
 -   A Python virtual environment tool (like `venv`)
 
-### 1. Clone the Repository
 
-```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
