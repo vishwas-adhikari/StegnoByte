@@ -38,9 +38,7 @@ This is classic steganography. It allows you to hide a secret text message withi
 -   **How it works**: You provide an image and a message. The tool encodes the text into the image's pixel data, producing a new "stego" image that looks identical to the original.
 -   **Use case**: Sending secret messages, watermarking images, or simply for educational purposes.
 
--   <p align="center">
-  <img src="screenshots/steg2.png" alt="Normal Mode Example" width="600"/>
-</p>
+-   ![Normal Mode Example](screenshots/steg2.png)
 
 
 ### 2. Integrity Mode
@@ -75,6 +73,8 @@ This tool provides a novel way to store and verify this checksum. Instead of sav
 🔹 **The Verification Process:** Later, when you want to check the original file, the tool extracts the trusted hash from within the image. It then calculates the *current* hash of the file and compares the two.
   - If they match ✅, the file is authentic and has not been tampered with.
   - If they don't match ❌, the file has been corrupted or modified.
+  - ![Normal Mode Example](screenshots/steg2.png)
+  - ![Normal Mode Example](screenshots/steg7.png)
 
 ---
 
