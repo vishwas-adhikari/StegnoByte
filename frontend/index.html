@@ -58,11 +58,6 @@
                         <input type="file" id="target-file" hidden>
                     </div>
 
-                    <div class="hash-display" id="hash-display" hidden>
-                        <label>File Hash (SHA-256)</label>
-                        <div class="hash-value" id="hash-value"></div>
-                    </div>
-
                     <div class="upload-area" id="cover-upload-integrity">
                         <div class="upload-content">
                             <div class="upload-icon">🖼️</div>
@@ -109,7 +104,7 @@
                     </button>
 
                     <div class="result-area" id="decode-normal-result" hidden>
-                        <label>Extracted Content</label>
+                        <div class="result-title">Extracted Content</div>
                         <div class="result-content" id="normal-result-content"></div>
                     </div>
                 </div>
@@ -124,6 +119,13 @@
                         </div>
                         <input type="file" id="decode-file-integrity" accept="image/*" hidden>
                     </div>
+                    
+                    <button class="decode-btn" id="decode-integrity-btn" disabled>
+                        <span class="btn-text">Extract Hash</span>
+                        <div class="btn-loading" hidden>
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
 
                     <div class="hash-display" id="extracted-hash-display" hidden>
                         <label>Extracted Hash (SHA-256)</label>
@@ -139,23 +141,19 @@
                         <input type="file" id="verify-file" hidden>
                     </div>
 
-                    <button class="decode-btn" id="decode-integrity-btn" disabled>
-                        <span class="btn-text">Extract Hash</span>
-                        <div class="btn-loading" hidden>
-                            <div class="spinner"></div>
-                        </div>
-                    </button>
-
+                    <!-- This is the container for the "SAFE" or "TAMPERED" message -->
                     <div class="verification-area" id="verification-result" hidden>
-                        <div class="verification-content" id="verification-content"></div>
+                        <div class="verification-content" id="verification-content">
+                            <!-- Verification result will be injected here by main.js -->
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
     </div>
 
+    <!-- Make sure to DELETE the steganography.js script tag -->
     <script src="utils.js"></script>
-    <script src="steganography.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
